@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Intensivo: Uñas de Fibra de Vidrio - ¡Inscríbete Hoy!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Elegant Rose & Warm Grays -->
+    <!-- Application Structure Plan: The SPA is a single-page sales funnel. It starts with a strong Hero section with a clear Call-To-Action (CTA). It then guides the user through sections designed to build value and trust: 'What you'll learn' (interactive accordion for modules), 'What you'll receive' (value proposition), 'Your Investment' (with a value breakdown chart), and 'Payment Options'. It concludes with social proof (testimonials) and a final, urgent CTA. This linear, persuasive flow is more effective for sales than a simple informational layout, guiding the user from interest to conversion. -->
+    <!-- Visualization & Content Choices: 1. Course Modules -> Goal: Organize/Inform -> Viz: Interactive Accordion -> Interaction: Click to expand -> Justification: Prevents overwhelming users with a long list of topics, making content digestible. 2. Value Proposition -> Goal: Persuade -> Viz: Card Grid with Icons -> Interaction: Subtle hover effects -> Justification: Visually breaks down the benefits, making them easy to scan and absorb. 3. Investment Value -> Goal: Justify Price -> Viz: Donut Chart -> Interaction: Hover to see details -> Justification: Reframes the price as a valuable investment by showing what the user gets in return, a powerful sales tactic. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+       <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+         @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        /* Custom style for hero background image */
+        .hero-background {
+            /* REEMPLAZA './nombre-de-tu-imagen-de-fondo.jpg' CON LA RUTA REAL DE TU IMAGEN LOCAL */
+            background-image: url('./img/logo.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header / Nav -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Placeholder for Logo -->
+            <a href="#" class="font-bold text-xl text-pink-600 flex items-center">
+                💅 <span class="ml-2 font-serif">EM STUDIO</span>
+            </a>
+            <a href="#inscribete" class="bg-pink-600 text-white font-bold py-2 px-6 rounded-full hover:bg-pink-700 transition-transform hover:scale-105">
+                Inscríbete Ahora
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="text-center py-20 px-6 bg-rose-50">
+            <div class="container mx-auto">
+                <h2 class="font-serif text-4xl md:text-6xl font-bold text-slate-900 mb-4">Transforma Tu Pasión en Profesión</h2>
+                <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-8">Domina la técnica más demandada de uñas de fibra de vidrio en un curso intensivo de un solo día y comienza a generar ingresos con tu talento.</p>
+                <a href="#inscribete" class="bg-pink-600 text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-pink-700 transition-transform hover:scale-105 shadow-lg">
+                    ¡Quiero mi lugar!
+                </a>
+            </div>
+        </section>
+
+        <!-- What you will learn Section -->
+        <section id="temario" class="py-16 md:py-24 px-6">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-12">
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold text-slate-900">¿Qué Aprenderás en Este Curso Exclusivo?</h3>
+                    <p class="mt-4 text-slate-600">Un programa completo de 8 módulos diseñado para llevarte de cero a experta.</p>
+                </div>
+                <div id="accordion-container" class="space-y-4">
+                    <!-- Accordion items will be injected by JS -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Value Proposition Section -->
+        <section id="beneficios" class="bg-white py-16 md:py-24 px-6">
+            <div class="container mx-auto max-w-5xl">
+                <div class="text-center mb-12">
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold text-slate-900">Tu Inscripción Incluye Todo Esto</h3>
+                    <p class="mt-4 text-slate-600">No solo te llevas conocimiento, te damos las herramientas para que empieces con el pie derecho.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+                    <div class="p-6 bg-rose-50 rounded-xl">
+                        <span class="text-4xl">📝</span>
+                        <h4 class="font-bold mt-2">Ebook Exclusivo</h4>
+                    </div>
+                    <div class="p-6 bg-rose-50 rounded-xl">
+                        <span class="text-4xl">🎓</span>
+                        <h4 class="font-bold mt-2">Certificación</h4>
+                    </div>
+                    <div class="p-6 bg-rose-50 rounded-xl">
+                        <span class="text-4xl">💼</span>
+                        <h4 class="font-bold mt-2">Kit Inicial</h4>
+                    </div>
+                    <div class="p-6 bg-rose-50 rounded-xl">
+                        <span class="text-4xl">💬</span>
+                        <h4 class="font-bold mt-2">Asesoría en Vivo</h4>
+                    </div>
+                    <div class="p-6 bg-rose-50 rounded-xl">
+                        <span class="text-4xl">🎨</span>
+                        <h4 class="font-bold mt-2">Prácticas Reales</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Instructor/About Us Section -->
+        <section id="quienes-somos" class="py-16 md:py-24 px-6 bg-rose-50">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h3 class="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-8">Conoce a Tu Instructora</h3>
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-48 h-48 rounded-full bg-slate-300 flex items-center justify-center overflow-hidden">
+                            <!-- Image for instructor: Replace "path/to/your/image.jpg" with your actual image path -->
+                            <img src="/img/logo.png" alt="Foto de la Instructora" class="object-cover w-full h-full">
+                        </div>
+                    </div>
+                    <div class="text-left md:text-lg">
+                        <p class="mb-4 text-slate-700">Soy <strong class="text-pink-600"> [Nombre de la Instructora]</strong>, una apasionada del Nail Art con más de [X] años de experiencia en la industria. Mi misión es compartir todos mis conocimientos y secretos para que tú también puedas transformar vidas a través de la belleza de las uñas. ¡He capacitado a cientos de alumnas que hoy son exitosas profesionales!</p>
+                        <p class="text-slate-700">Mi enfoque es práctico y cercano, diseñado para que te sientas cómoda y segura en cada paso. Creo firmemente que la formación de calidad es la clave para destacar en este hermoso oficio. ¡Estoy ansiosa por acompañarte en tu camino!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Section -->
+        <section id="inversion" class="py-16 md:py-24 px-6">
+            <div class="container mx-auto max-w-5xl">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                         <h3 class="font-serif text-3xl md:text-4xl font-bold text-slate-900">Una Inversión Inteligente en Tu Futuro</h3>
+                         <p class="mt-4 text-slate-600 mb-6">El valor del curso es de <span class="font-bold text-pink-600">$4500 Pesos Uruguayos</span>. Más que un gasto, es el primer paso hacia tu independencia profesional. Mira todo el valor que recibes:</p>
+                        <ul class="space-y-2 text-left">
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Formación práctica intensiva (8 horas)</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Materiales de inicio para tus primeras clientas</li>
+                            <li class="flex items-center"><span class="text-green-500 mr-2">✔</span> Soporte y conocimiento para toda la vida</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="chart-container">
+                            <canvas id="valueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="bg-rose-50 py-16 md:py-24 px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                 <h3 class="font-serif text-3xl md:text-4xl font-bold text-slate-900">Lo que Dicen Nuestras Alumnas</h3>
+                 <div class="mt-12 grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm text-left">
+                        <p class="text-slate-600">"¡Increíble! En un solo día aprendí más que en meses de ver videos. Salí sintiéndome segura y lista para trabajar. ¡Ya tengo mis primeras clientas!"</p>
+                        <p class="font-bold mt-4 text-pink-600">- Sofía L.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-sm text-left">
+                        <p class="text-slate-600">"El curso superó mis expectativas. La profe es una genia y el kit que nos dieron es súper completo. La mejor inversión que he hecho en mi carrera."</p>
+                        <p class="font-bold mt-4 text-pink-600">- Valentina R.</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+
+        <!-- CTA and Payment Section -->
+        <section id="inscribete" class="py-16 md:py-24 px-6 text-center bg-slate-900 text-white">
+            <div class="container mx-auto max-w-3xl">
+                <h3 class="font-serif text-3xl md:text-4xl font-bold">¡Los Cupos Son Limitados!</h3>
+                <p class="mt-4 text-slate-300 mb-8">Para garantizar una experiencia personalizada y de alta calidad, trabajamos con grupos reducidos. ¡No dejes pasar esta oportunidad de impulsar tu carrera!</p>
+                
+                <div class="bg-white text-slate-800 p-8 rounded-2xl shadow-2xl">
+                    <h4 class="font-bold text-2xl mb-2">Reserva Tu Lugar Ahora</h4>
+                    <p class="text-4xl font-bold text-pink-600 mb-6">$4500 <span class="text-lg font-normal text-slate-500">UYU</span></p>
+                    
+                    <h5 class="font-bold mt-6 mb-4">Métodos de Pago Flexibles:</h5>
+                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="p-3 bg-slate-100 rounded-lg">
+                            <p class="font-bold">💳 Mercado Pago</p>
+                            <p class="text-sm text-slate-500">Hasta 12 cuotas</p>
+                        </div>
+                         <div class="p-3 bg-slate-100 rounded-lg">
+                            <p class="font-bold">💸 Giros</p>
+                            <p class="text-sm text-slate-500">Abitab / RedPagos</p>
+                        </div>
+                         <div class="p-3 bg-slate-100 rounded-lg">
+                            <p class="font-bold">🏦 Transferencia</p>
+                             <p class="text-sm text-slate-500">Bancaria</p>
+                        </div>
+                    </div>
+                    <a href="#" class="block w-full mt-8 bg-pink-600 text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-pink-700 transition-transform hover:scale-105">
+                        ¡QUIERO INSCRIBIRME!
+                    </a>
+                    <p class="text-xs text-slate-400 mt-4">Al hacer clic serás redirigida para completar tu inscripción de forma segura.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 text-center py-8 px-6">
+        <div class="container mx-auto text-slate-500">
+            <p>&copy; 2025 EM STUDIO. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Un curso diseñado con pasión en Rivera, Uruguay.</p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Accordion Logic ---
+    const modules = [
+        { title: "Módulo 1: Anatomía y Cuidado", content: "Conoce la estructura de la uña para un trabajo seguro y aprende los cuidados esenciales para mantener la salud ungueal." },
+        { title: "Módulo 2: Identificación de Enfermedades", content: "Detecta a tiempo cualquier afección para proteger la salud de tus clientas. Reconoce cuándo trabajar y cuándo derivar a un especialista." },
+        { title: "Módulo 3: Preparación Perfecta", content: "Domina los 5 pasos esenciales para una adherencia impecable y duradera. Aprende a usar correctamente tus herramientas y productos." },
+        { title: "Módulo 4: Aplicación Paso a Paso", content: "La guía completa y detallada para construir extensiones de fibra de vidrio resistentes y naturales, desde la colocación hasta el limado final." },
+        { title: "Módulo 5: Mantenimiento y Rellenos", content: "Extiende la vida útil de tus aplicaciones con técnicas de relleno y service. Aprende a detectar y corregir levantamientos o infiltraciones." },
+        { title: "Módulo 6: Retiro Seguro", content: "Protege la uña natural de tus clientas con métodos de retiro seguros y efectivos. Conoce el cuidado post-retiro para mantener la salud ungueal." },
+        { title: "Módulo 7: Diseño y Decoración Avanzada", content: "Libera tu creatividad con técnicas como Baby Boomer, encapsulados, y efectos cromados. Explora las últimas tendencias del Nail Art." },
+        { title: "Módulo 8: Construyendo Tu Portafolio", content: "Aprende a fotografiar tus trabajos como una profesional y crea un portafolio impactante que atraiga a tus clientes soñados." }
+    ];
+
+    const accordionContainer = document.getElementById('accordion-container');
+    modules.forEach((module, index) => {
+        const item = document.createElement('div');
+        item.className = 'border border-slate-200 rounded-lg';
+        item.innerHTML = `
+            <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-bold text-slate-800 hover:bg-rose-50">
+                <span>${module.title}</span>
+                <span class="accordion-icon text-xl text-pink-600 transition-transform transform">+</span>
+            </button>
+            <div class="accordion-content px-4">
+                <p class="py-4 text-slate-600 border-t border-slate-200">${module.content}</p>
+            </div>
+        `;
+        accordionContainer.appendChild(item);
+    });
+
+    accordionContainer.addEventListener('click', function(event) {
+        const button = event.target.closest('.accordion-button');
+        if (button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.accordion-icon');
+            const isOpen = content.style.maxHeight;
+
+            // Optional: Close all other accordions
+            // document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+            // document.querySelectorAll('.accordion-icon').forEach(i => { i.textContent = '+'; i.classList.remove('rotate-45'); });
+
+            if (isOpen) {
+                content.style.maxHeight = null;
+                icon.classList.remove('rotate-45');
+                icon.textContent = '+';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.classList.add('rotate-45');
+                icon.textContent = '+';
+            }
+        }
+    });
+
+    // --- Chart.js Logic ---
+    const ctx = document.getElementById('valueChart').getContext('2d');
+    const valueChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Práctica Intensiva', 'Kit de Inicio', 'Contenido Teórico', 'Certificación', 'Asesoría'],
+            datasets: [{
+                label: 'Valor del Curso',
+                data: [40, 25, 15, 10, 10],
+                backgroundColor: [
+                    '#f43f5e', // rose-500
+                    '#fb7185', // rose-400
+                    '#fda4af', // rose-300
+                    '#fecdd3', // rose-200
+                    '#ffe4e6'  // rose-100
+                ],
+                borderColor: '#fff',
+                borderWidth: 4,
+                hoverOffset: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Desglose de Tu Inversión',
+                    font: {
+                        size: 18,
+                        family: "'Inter', sans-serif"
+                    },
+                    padding: {
+                        bottom: 20
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: ${context.raw}% del valor`;
+                        }
+                    }
+                }
+            },
+            cutout: '50%'
+        }
+    });
+});
+</script>
+
+</body>
+</html>
